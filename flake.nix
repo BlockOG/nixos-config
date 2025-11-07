@@ -48,7 +48,11 @@
     ];
   in {
     nixosConfigurations.blockog-laptop = nixpkgs.lib.nixosSystem (let
-      modules = globalModules;
+      modules = builtins.concatLists [
+        globalModules
+        [
+        ]
+      ];
     in {
       system = system;
       specialArgs = {inherit inputs;};
@@ -93,7 +97,12 @@
       ];
     });
     nixosConfigurations.blockog-desktop = nixpkgs.lib.nixosSystem (let
-      modules = globalModules;
+      modules = builtins.concatLists [
+        globalModules
+        [
+          ./modules/niri-desktop
+        ]
+      ];
     in {
       system = system;
       specialArgs = {inherit inputs;};
