@@ -39,4 +39,6 @@
       }
     ];
   };
+
+  programs.nushell.environmentVariables.EDITOR = "hx";
 }

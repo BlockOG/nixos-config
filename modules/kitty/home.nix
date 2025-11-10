@@ -1,7 +1,10 @@
 {
   programs.kitty.enable = true;
-  programs.kitty.settings = {
-    confirm_os_window_close = 0;
-    hide_window_decorations = true;
+  programs.kitty = {
+    settings = {
+      confirm_os_window_close = 0;
+      hide_window_decorations = true;
+    };
+    themeFile = "Catppuccin-Mocha";
   };
 }

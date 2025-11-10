@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,6 +18,7 @@
 
   outputs = {
     nixpkgs,
+    nixos-hardware,
     home-manager,
     ...
   } @ inputs: let
@@ -25,6 +27,8 @@
       ./modules/users
       ./modules/nushell
       ./modules/direnv
+      ./modules/yazi
+      ./modules/gitui
       ./secret-modules/networks
       ./modules/wget
       ./modules/7zip
@@ -40,9 +44,12 @@
       ./modules/kitty
       ./modules/hyfetch
       ./modules/fuzzel
+      ./modules/imv
+      ./modules/mpv
       ./modules/firefox
       ./modules/vesktop
       ./modules/steam
+      ./modules/obs
       ./modules/osu
       ./modules/samply
     ];
@@ -51,6 +58,7 @@
       modules = builtins.concatLists [
         globalModules
         [
+          ./modules/brightnessctl
         ]
       ];
     in {
@@ -58,14 +66,11 @@
       specialArgs = {inherit inputs;};
       modules = builtins.concatLists [
         [
+          nixos-hardware.nixosModules.lenovo-ideapad-slim-5
+          ./hardware-configuration-laptop.nix
           home-manager.nixosModules.home-manager
           ({pkgs, ...}: {
-            imports = [./hardware-configuration-laptop.nix];
             nix.settings.experimental-features = ["nix-command" "flakes"];
-            environment.systemPackages = with pkgs; [
-              brightnessctl
-            ];
-
             boot.loader.systemd-boot.enable = true;
             boot.loader.efi.canTouchEfiVariables = true;
             boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -108,17 +113,17 @@
       specialArgs = {inherit inputs;};
       modules = builtins.concatLists [
         [
+          nixos-hardware.nixosModules.common-cpu-amd
+          nixos-hardware.nixosModules.common-gpu-amd
+          nixos-hardware.nixosModules.common-pc-ssd
+          ./hardware-configuration-desktop.nix
           home-manager.nixosModules.home-manager
           ({pkgs, ...}: {
-            imports = [./hardware-configuration-desktop.nix];
             nix.settings.experimental-features = ["nix-command" "flakes"];
-            environment.systemPackages = with pkgs; [
-              brightnessctl
-            ];
-
             boot.loader.systemd-boot.enable = true;
             boot.loader.efi.canTouchEfiVariables = true;
             boot.kernelPackages = pkgs.linuxPackages_latest;
+
             fileSystems."/".options = ["noatime"];
 
             networking.hostName = "blockog-desktop";
@@ -128,7 +133,10 @@
 
             services.automatic-timezoned.enable = true;
 
+            services.upower.enable = true;
             services.dbus.implementation = "broker";
+
+            hardware.wooting.enable = true;
 
             home-manager = {
               useGlobalPkgs = true;

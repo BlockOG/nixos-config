@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: {
-  environment.systemPackages = [pkgs.helix];
+  environment.systemPackages = with pkgs; [helix];
   environment.variables.EDITOR = "hx";
 
   nixpkgs.overlays = [
