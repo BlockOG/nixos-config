@@ -136,6 +136,7 @@
             services.upower.enable = true;
             services.dbus.implementation = "broker";
 
+            hardware.amdgpu.opencl.enable = true;
             hardware.wooting.enable = true;
 
             home-manager = {
