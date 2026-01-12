@@ -1,11 +1,12 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    (rust-bin.stable.latest.default.override {
+    (rust-bin.nightly.latest.default.override {
       extensions = [
         "rust-src"
         "rust-analyzer"
       ];
     })
+    wgsl-analyzer
     clang-tools
     nixd
     alejandra
