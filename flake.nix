@@ -55,6 +55,7 @@
       ./modules/python
       ./modules/minecraft
       ./modules/comma
+      ./modules/ripdrag
     ];
   in {
     nixosConfigurations.blockog-laptop = nixpkgs.lib.nixosSystem (let
