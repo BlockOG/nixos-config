@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   programs.niri.settings = {
     screenshot-path = "~/screenshots/%Y-%m-%d_%H-%M-%S.png";
     prefer-no-csd = true;
@@ -100,5 +104,27 @@
         open-focused = false;
       }
     ];
+  };
+
+  xdg.portal.enable = true;
+  xdg.portal = {
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gnome
+      pkgs.xdg-desktop-portal-termfilechooser
+    ];
+    config.common = {
+      default = "gnome";
+      "org.freedesktop.impl.portal.FileChooser" = "termfilechooser";
+    };
+  };
+
+  xdg.configFile."xdg-desktop-portal-termfilechooser/config" = {
+    force = true;
+    text = ''
+      [filechooser]
+      cmd=${pkgs.xdg-desktop-portal-termfilechooser}/share/xdg-desktop-portal-termfilechooser/yazi-wrapper.sh
+      default_dir=$HOME
+      env=TERMCMD=kitty --class=file_chooser
+    '';
   };
 }
