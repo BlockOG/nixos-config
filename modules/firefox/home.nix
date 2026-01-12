@@ -29,6 +29,26 @@
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/firefox-color/latest.xpi";
           installation_mode = "force_installed";
         };
+        "{b285d6d2-4311-418a-b5b4-cc9953c7b833}" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/4636505/latest.xpi";
+          installation_mode = "force_installed";
+        };
+        "sponsorBlocker@ajay.app" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi";
+          installation_mode = "force_installed";
+        };
+        "addon@darkreader.org" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
+          installation_mode = "force_installed";
+        };
+        "DesModder@jared-hughes.github.io" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/desmodder-for-desmos/latest.xpi";
+          installation_mode = "force_installed";
+        };
+        "support@youtuberowfixer.com" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/youtube-row-fixer-add-on/latest.xpi";
+          installation_mode = "force_installed";
+        };
       };
 
       Preferences = {
