@@ -1,4 +1,4 @@
-{lib, ...}: {
+{
   programs.yazi.enable = true;
   programs.yazi = {
     enableNushellIntegration = true;
@@ -6,8 +6,8 @@
   };
 
   home.file.".config/yazi/theme.toml".source = builtins.fetchurl {
-    url = "https://raw.githubusercontent.com/catppuccin/yazi/043ffae14e7f7fcc136636d5f2c617b5bc2f5e31/themes/mocha/catppuccin-mocha-mauve.toml";
-    sha256 = "f61ad1fa6c333720eec9c60db27824fb482712497119f622e9044e177dc75750";
+    url = "https://raw.githubusercontent.com/catppuccin/yazi/refs/heads/main/themes/mocha/catppuccin-mocha-mauve.toml";
+    sha256 = "468957ec40ffe053502b2fb58c02389510cfd4130167817bf528c106980a82f3";
   };
   home.file.".config/yazi/Catppuccin-mocha.tmTheme".source = builtins.fetchurl {
     name = "Catppuccin-Mocha.tmTheme";
