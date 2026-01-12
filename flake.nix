@@ -52,6 +52,7 @@
       ./modules/obs
       ./modules/osu
       ./modules/samply
+      ./modules/python
     ];
   in {
     nixosConfigurations.blockog-laptop = nixpkgs.lib.nixosSystem (let
