@@ -5,6 +5,7 @@
         ipython
         z3-solver
         matplotlib
+        pyperclip
       ]))
   ];
 }
