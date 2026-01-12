@@ -83,7 +83,7 @@
 
             networking.hostName = "blockog-laptop";
             networking.wireless.enable = true;
-            networking.wireless.userControlled.enable = true;
+            networking.wireless.userControlled = true;
             hardware.bluetooth.enable = true;
 
             services.automatic-timezoned.enable = true;
