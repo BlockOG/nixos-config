@@ -57,6 +57,7 @@
       ./modules/comma
       ./modules/ripdrag
       ./modules/clipboard
+      ./modules/olympus
     ];
   in {
     nixosConfigurations.blockog-laptop = nixpkgs.lib.nixosSystem (let
