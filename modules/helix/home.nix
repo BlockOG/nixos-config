@@ -10,6 +10,7 @@
     clang-tools
     nixd
     alejandra
+    svelte-language-server
   ];
 
   programs.helix.enable = true;
