@@ -14,6 +14,10 @@
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    xdg-desktop-portal-termfilepickers = {
+      url = "github:Guekka/xdg-desktop-portal-termfilepickers";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {

@@ -1,6 +1,8 @@
 {
   config,
   pkgs,
+  inputs,
+  lib,
   ...
 }: {
   programs.niri.settings = {
@@ -110,21 +112,32 @@
   xdg.portal = {
     extraPortals = [
       pkgs.xdg-desktop-portal-gnome
-      pkgs.xdg-desktop-portal-termfilechooser
+      pkgs.xdg-desktop-portal-gtk
     ];
     config.common = {
-      default = "gnome";
-      "org.freedesktop.impl.portal.FileChooser" = "termfilechooser";
+      default = ["gnome" "gtk"];
     };
   };
 
-  xdg.configFile."xdg-desktop-portal-termfilechooser/config" = {
-    force = true;
-    text = ''
-      [filechooser]
-      cmd=${pkgs.xdg-desktop-portal-termfilechooser}/share/xdg-desktop-portal-termfilechooser/yazi-wrapper.sh
-      default_dir=$HOME
-      env=TERMCMD=kitty --class=file_chooser
-    '';
+  # xdg.configFile."xdg-desktop-portal-termfilechooser/config" = {
+  #   force = true;
+  #   text = ''
+  #     [filechooser]
+  #     cmd=${pkgs.xdg-desktop-portal-termfilechooser}/share/xdg-desktop-portal-termfilechooser/yazi-wrapper.sh
+  #     default_dir=$HOME
+  #     env=TERMCMD=kitty --class=file_chooser
+  #   '';
+  # };
+
+  imports = [inputs.xdg-desktop-portal-termfilepickers.homeManagerModules.default];
+
+  services.xdg-desktop-portal-termfilepickers = let
+    termfilepickers = inputs.xdg-desktop-portal-termfilepickers.packages.x86_64-linux.default;
+  in {
+    enable = true;
+    package = termfilepickers;
+    config = {
+      terminal_command = [(lib.getExe pkgs.kitty)];
+    };
   };
 }
