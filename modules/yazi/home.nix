@@ -6,7 +6,7 @@
   };
 
   home.file.".config/yazi/theme.toml".source = builtins.fetchurl {
-    url = "https://raw.githubusercontent.com/catppuccin/yazi/refs/heads/main/themes/mocha/catppuccin-mocha-mauve.toml";
+    url = "https://raw.githubusercontent.com/catppuccin/yazi/fc69d6472d29b823c4980d23186c9c120a0ad32c/themes/mocha/catppuccin-mocha-mauve.toml";
     sha256 = "468957ec40ffe053502b2fb58c02389510cfd4130167817bf528c106980a82f3";
   };
   home.file.".config/yazi/Catppuccin-mocha.tmTheme".source = builtins.fetchurl {
