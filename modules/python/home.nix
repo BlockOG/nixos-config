@@ -6,6 +6,7 @@
         z3-solver
         matplotlib
         pyperclip
+        websockets
       ]))
   ];
 }
