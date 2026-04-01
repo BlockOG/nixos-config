@@ -7,6 +7,8 @@
         matplotlib
         pyperclip
         websockets
+        pygame-ce
+        pydantic
       ]))
   ];
 }
