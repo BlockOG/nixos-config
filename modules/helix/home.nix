@@ -11,6 +11,8 @@
     nixd
     alejandra
     svelte-language-server
+    zls
+    zig
   ];
 
   programs.helix.enable = true;
