@@ -61,6 +61,7 @@
     input = {
       focus-follows-mouse.enable = true;
       touchpad.click-method = "clickfinger";
+      touchpad.accel-profile = "flat";
     };
 
     layout = {
