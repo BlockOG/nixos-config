@@ -96,6 +96,19 @@
             services.upower.enable = true;
             services.dbus.implementation = "broker";
 
+            services.keyd = {
+              enable = true;
+              keyboards = {
+                default = {
+                  ids = ["*"];
+                  settings.main = {
+                    capslock = "kp0";
+                    "leftmeta+leftshift+f23" = "layer(meta)";
+                  };
+                };
+              };
+            };
+
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
