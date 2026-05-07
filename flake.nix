@@ -62,6 +62,7 @@
       ./modules/ripdrag
       ./modules/clipboard
       ./modules/olympus
+      ./modules/xdg-config
     ];
   in {
     nixosConfigurations.blockog-laptop = nixpkgs.lib.nixosSystem (let

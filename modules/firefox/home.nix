@@ -17,7 +17,6 @@
       DisplayBookmarksToolbar = "newbar";
       DisplayMenuBar = "never";
       SearchBar = "unified";
-      DefaultDownloadDirectory = "\${home}/downloads";
 
       ExtensionSettings = {
         "*".installation_mode = "blocked";
@@ -52,7 +51,6 @@
       };
 
       Preferences = {
-        "browser.download.folderList" = 2; # apply new downloads folder
         "browser.startup.page" = 3; # restore previous tabs
         "browser.tabs.insertAfterCurrent" = true;
         "browser.newtabpage.activity-stream.feeds.topsites" = false;
